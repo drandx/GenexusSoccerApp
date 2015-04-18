@@ -1,4 +1,4 @@
-package com.soccerapp.genexus.task1;
+package com.soccerapp.genexus.task1.Fragments;
 
 import android.app.Activity;
 import android.os.Bundle;
