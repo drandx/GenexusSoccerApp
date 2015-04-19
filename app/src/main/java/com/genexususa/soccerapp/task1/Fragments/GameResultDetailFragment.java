@@ -1,4 +1,4 @@
-package com.soccerapp.genexus.task1.Fragments;
+package com.genexususa.soccerapp.task1.Fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,13 +8,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
-import com.soccerapp.genexus.task1.R;
-import com.soccerapp.genexus.task1.dummy.DummyContent;
+import com.genexususa.soccerapp.task1.R;
+import com.genexususa.soccerapp.task1.dummy.DummyContent;
 
 /**
  * A fragment representing a single GameResult detail screen.
- * This fragment is either contained in a {@link com.soccerapp.genexus.task1.Activities.GameResultListActivity}
- * in two-pane mode (on tablets) or a {@link com.soccerapp.genexus.task1.Activities.GameResultDetailActivity}
+ * This fragment is either contained in a {@link com.genexususa.soccerapp.task1.Activities.GameResultListActivity}
+ * in two-pane mode (on tablets) or a {@link com.genexususa.soccerapp.task1.Activities.GameResultDetailActivity}
  * on handsets.
  */
 public class GameResultDetailFragment extends Fragment {

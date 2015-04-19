@@ -1,4 +1,4 @@
-package com.soccerapp.genexus.task1.Activities;
+package com.genexususa.soccerapp.task1.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,8 +6,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
 
-import com.soccerapp.genexus.task1.Fragments.GameResultDetailFragment;
-import com.soccerapp.genexus.task1.R;
+import com.genexususa.soccerapp.task1.Fragments.GameResultDetailFragment;
+import com.genexususa.soccerapp.task1.R;
 
 
 /**
@@ -17,7 +17,7 @@ import com.soccerapp.genexus.task1.R;
  * in a {@link GameResultListActivity}.
  * <p/>
  * This activity is mostly just a 'shell' activity containing nothing
- * more than a {@link com.soccerapp.genexus.task1.Fragments.GameResultDetailFragment}.
+ * more than a {@link com.genexususa.soccerapp.task1.Fragments.GameResultDetailFragment}.
  */
 public class GameResultDetailActivity extends ActionBarActivity {
 

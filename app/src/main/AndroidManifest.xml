@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.soccerapp.genexus.task1" >
-
+    package="com.genexususa.soccerapp.task1" >
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".Activities.GameResultListActivity"
+            android:name="com.genexususa.soccerapp.task1.Activities.GameResultListActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,12 +22,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activities.GameResultDetailActivity"
+            android:name="com.genexususa.soccerapp.task1.Activities.GameResultDetailActivity"
             android:label="@string/title_gameresult_detail"
-            android:parentActivityName=".Activities.GameResultListActivity" >
+            android:parentActivityName="com.genexususa.soccerapp.task1.Activities.GameResultListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activities.GameResultListActivity" />
+                android:value="com.genexususa.soccerapp.task1.Activities.GameResultListActivity" />
         </activity>
     </application>
 

@@ -1,4 +1,4 @@
-package com.soccerapp.genexus.task1.dummy;
+package com.genexususa.soccerapp.task1.dummy;
 
 import java.util.ArrayList;
 import java.util.HashMap;

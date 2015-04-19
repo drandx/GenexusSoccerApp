@@ -1,4 +1,4 @@
-package com.soccerapp.genexus.task1.Fragments;
+package com.genexususa.soccerapp.task1.Fragments;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 
-import com.soccerapp.genexus.task1.dummy.DummyContent;
+import com.genexususa.soccerapp.task1.dummy.DummyContent;
 
 /**
  * A list fragment representing a list of GamesResults. This fragment

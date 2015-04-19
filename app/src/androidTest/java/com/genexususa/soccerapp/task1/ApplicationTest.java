@@ -1,4 +1,4 @@
-package com.soccerapp.genexus.task1;
+package com.genexususa.soccerapp.task1;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
