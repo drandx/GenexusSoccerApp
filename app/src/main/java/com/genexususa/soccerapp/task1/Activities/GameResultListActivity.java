@@ -49,25 +49,6 @@ public class GameResultListActivity extends FragmentActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gameresult_list);
-        Log.i("**** Before The Call", "....");
-
-        /*
-        RestClient.get().getWeather("California", new Callback<WeatherResponse>() {
-            @Override
-                public void success(WeatherResponse weatherResponse, Response response) {
-                    // success!
-                    Log.i("App", weatherResponse.getBase());
-                    //Log.i("App", weatherResponse.getWeather().getMain());
-                    //Log.i("App", weatherResponse.getWeather().getDescription());
-                    // you get the point...
-                }
-
-                @Override
-                public void failure(RetrofitError error) {
-                    // something went wrong
-                }
-            });*/
-
 
         RestClient.get().getGamesResults("{\"include\": [{\"groups\": {\"games\":\"gameParticipant\"}}]}", new Callback<List<TournamentsResponse>>() {
             @Override

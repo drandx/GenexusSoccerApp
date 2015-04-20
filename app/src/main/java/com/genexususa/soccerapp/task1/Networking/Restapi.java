@@ -14,10 +14,6 @@ import retrofit.http.Query;
  */
 
 public interface Restapi {
-
-    @GET("/weather")
-    void getWeather(@Query("q") String cityName, Callback<WeatherResponse> callback);
-
     //{"include": [{"groups": {"games":"gameParticipant"}}]}
     @GET("/tournaments")
     void getGamesResults(@Query("filter") String filterQuery, Callback<List<TournamentsResponse>> callback);
