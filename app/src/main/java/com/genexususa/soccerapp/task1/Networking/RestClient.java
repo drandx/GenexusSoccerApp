@@ -13,9 +13,7 @@ import retrofit.client.OkClient;
 public class RestClient {
 
     private static Restapi REST_CLIENT;
-    private static String ROOT =
-            "http://api.openweathermap.org/data/2.5";
-
+    private static String ROOT = "http://104.43.136.168:3000/api";
 
     static {
         setupRestClient();

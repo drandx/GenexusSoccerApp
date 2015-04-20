@@ -1,6 +1,9 @@
 package com.genexususa.soccerapp.task1.Networking;
 
+import com.genexususa.soccerapp.task1.Networking.Responses.TournamentsResponse;
 import com.genexususa.soccerapp.task1.Networking.Responses.WeatherResponse;
+
+import java.util.List;
 
 import retrofit.Callback;
 import retrofit.http.GET;
@@ -14,4 +17,8 @@ public interface Restapi {
 
     @GET("/weather")
     void getWeather(@Query("q") String cityName, Callback<WeatherResponse> callback);
+
+    //{"include": [{"groups": {"games":"gameParticipant"}}]}
+    @GET("/tournaments")
+    void getGamesResults(@Query("filter") String filterQuery, Callback<List<TournamentsResponse>> callback);
 }
