@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="80dp"
@@ -70,7 +69,8 @@
                 android:id="@+id/iconLocal"
                 android:layout_width="38dp"
                 android:layout_height="38dp"
-                android:src="@drawable/racingIco" />
+                android:src="@drawable/rivericon"
+                 />
 
             <TextView
                 android:id="@+id/localTeamNameText"
@@ -118,33 +118,22 @@
             android:textColor="#696969"
             android:textSize="21sp" />
 
-        <TextView
-            android:id="@+id/visitorScoreText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0"
-            android:layout_toLeftOf="@id/visitorContainer"
-            android:layout_marginTop="35dp"
-            android:layout_marginLeft="35dp"
-            android:textColor="#696969"
-            android:textSize="21sp"
-            android:paddingRight="34dp" />
-
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/visitorContainer"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:layout_marginRight="34dp"
             android:layout_marginTop="21dp"
             android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:id="@+id/visitorLayout">
 
             <ImageView
                 android:id="@+id/visitorIcon"
                 android:layout_width="38dp"
                 android:layout_height="38dp"
-                android:src="@drawable/riverIco" />
+                android:src="@drawable/racingicon"
+                 />
 
             <TextView
                 android:id="@+id/visitorTeamTxt"
@@ -156,12 +145,17 @@
                 android:textColor="#000000"
                 android:textSize="12sp" />
         </LinearLayout>
+        <TextView
+            android:id="@+id/visitorScoreText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:layout_toLeftOf="@id/visitorLayout"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="35dp"
+            android:textColor="#696969"
+            android:textSize="21sp"
+            android:paddingRight="34dp" />
     </RelativeLayout>
 
 </RelativeLayout>
-=======
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
-
-</LinearLayout>
->>>>>>> parent of 56d797a... Adding UI details.
