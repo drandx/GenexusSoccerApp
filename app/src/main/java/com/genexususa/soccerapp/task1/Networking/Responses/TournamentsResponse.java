@@ -1,5 +1,8 @@
 package com.genexususa.soccerapp.task1.Networking.Responses;
 
+/**
+ * Created by juangarcia on 4/20/15.
+ */
 public class TournamentsResponse {
     private String id;
     private String name;

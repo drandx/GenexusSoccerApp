@@ -2,16 +2,13 @@ package com.genexususa.soccerapp.task1.Networking;
 
 
 import com.squareup.okhttp.OkHttpClient;
+
 import retrofit.RestAdapter;
 import retrofit.client.OkClient;
 
-
 /**
- *  functionality:
- *  created:       2015-04-20
- *  @author:       Juan Garcia
- *  changes:
- **/
+ * Created by Soham Banerjee on 1/25/15.
+ */
 
 public class RestClient {
 
@@ -25,17 +22,6 @@ public class RestClient {
     public static Restapi get() {
         return REST_CLIENT;
     }
-
-
-
-    /**
-     *  functionality:
-     *  @author:
-     *  @param:
-     *  @param:
-     *  @return:
-     *  @exception:
-     **/
 
     private static void setupRestClient() {
 

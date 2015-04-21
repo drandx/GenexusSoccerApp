@@ -1,6 +1,8 @@
 package com.genexususa.soccerapp.task1.Networking;
 
 import com.genexususa.soccerapp.task1.Networking.Responses.TournamentsResponse;
+import com.genexususa.soccerapp.task1.Networking.Responses.WeatherResponse;
+
 import java.util.List;
 
 import retrofit.Callback;
