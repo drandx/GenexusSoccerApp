@@ -5,22 +5,14 @@ package com.genexususa.soccerapp.task1.Model;
  */
 public class GameParticipant {
 
-    private Team team;
+    private String teamId;
     private int score;
     private boolean isLocal;
 
-    public GameParticipant(Team team, int score, boolean isLocal) {
-        this.team = team;
+    public GameParticipant(int score, boolean isLocal, String teamId) {
         this.score = score;
         this.isLocal = isLocal;
-    }
-
-    public Team getTeam() {
-        return team;
-    }
-
-    public void setTeam(Team team) {
-        this.team = team;
+        this.teamId = teamId;
     }
 
     public int getScore() {
@@ -37,5 +29,13 @@ public class GameParticipant {
 
     public void setLocal(boolean isLocal) {
         this.isLocal = isLocal;
+    }
+
+    public String getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(String teamId) {
+        this.teamId = teamId;
     }
 }

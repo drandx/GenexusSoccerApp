@@ -7,10 +7,12 @@ import java.util.List;
  */
 public class Group {
 
+    private String id;
     private String name;
     private List<Game> games;
 
-    public Group(String name, List<Game> games) {
+    public Group(String id, String name, List<Game> games) {
+        this.id = id;
         this.name = name;
         this.games = games;
     }
@@ -29,5 +31,13 @@ public class Group {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

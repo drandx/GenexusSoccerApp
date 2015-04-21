@@ -113,10 +113,11 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="35dp"
             android:layout_marginTop="35dp"
-            android:layout_toRightOf="@id/localContainer"
+            android:layout_centerHorizontal="true"
             android:text="3"
             android:textColor="#696969"
-            android:textSize="21sp" />
+            android:textSize="21sp"
+            android:paddingRight="40dp" />
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="wrap_content"
@@ -150,12 +151,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0"
-            android:layout_toLeftOf="@id/visitorLayout"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="35dp"
             android:layout_marginLeft="35dp"
             android:textColor="#696969"
             android:textSize="21sp"
-            android:paddingRight="34dp" />
+            android:paddingLeft="10dp" />
     </RelativeLayout>
 
 </RelativeLayout>

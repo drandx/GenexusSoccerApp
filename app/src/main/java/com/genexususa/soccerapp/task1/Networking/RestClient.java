@@ -5,7 +5,10 @@ import com.squareup.okhttp.OkHttpClient;
 
 import retrofit.RestAdapter;
 import retrofit.client.OkClient;
+import retrofit.converter.GsonConverter;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 /**
  * Created by Soham Banerjee on 1/25/15.
  */
@@ -24,11 +27,14 @@ public class RestClient {
     }
 
     private static void setupRestClient() {
-
+        Gson gson = new GsonBuilder()
+                .setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+                .create();
 
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setLogLevel(RestAdapter.LogLevel.FULL)
                 .setEndpoint(ROOT)
+                .setConverter(new GsonConverter(gson))
                 .setClient(new OkClient(new OkHttpClient()))
                 .setRequestInterceptor(new SessionRequestInterceptor())
                 .build();

@@ -7,11 +7,10 @@ import android.util.Log;
 
 import com.genexususa.soccerapp.task1.Fragments.GameResultDetailFragment;
 import com.genexususa.soccerapp.task1.Fragments.GameResultListFragment;
-import com.genexususa.soccerapp.task1.Networking.Responses.TournamentsResponse;
+import com.genexususa.soccerapp.task1.Model.Tournament;
 import com.genexususa.soccerapp.task1.R;
 
 import com.genexususa.soccerapp.task1.Networking.RestClient;
-import com.genexususa.soccerapp.task1.Networking.Responses.WeatherResponse;
 
 
 import java.util.List;
@@ -50,9 +49,9 @@ public class GameResultListActivity extends FragmentActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gameresult_list);
 
-        RestClient.get().getGamesResults("{\"include\": [{\"groups\": {\"games\":\"gameParticipant\"}}]}", new Callback<List<TournamentsResponse>>() {
+        RestClient.get().getGamesResults("{\"include\": [{\"groups\": {\"games\":\"gameParticipant\"}}]}", new Callback<List<Tournament>>() {
             @Override
-                public void success(List<TournamentsResponse> tournamentsResponse, Response response) {
+                public void success(List<Tournament> tournamentsResponse, Response response) {
                     // success!
                     Log.i("Number of Tournaments: ", "--->"+tournamentsResponse.size());
                     //Log.i("App", weatherResponse.getWeather().getMain());

@@ -8,20 +8,23 @@ import java.util.List;
  */
 public class Game {
 
-    private List<GameParticipant> gameParticipants;
+    private String id;
+    private List<GameParticipant> gameParticipant;
     private Date eventDate;
 
-    public Game(List<GameParticipant> gameParticipants, Date eventDate) {
-        this.gameParticipants = gameParticipants;
+    public Game(String id, List<GameParticipant> gameParticipant, Date eventDate) {
+        this.gameParticipant = gameParticipant;
         this.eventDate = eventDate;
+        this.id = id;
     }
 
-    public List<GameParticipant> getGameParticipants() {
-        return gameParticipants;
+
+    public List<GameParticipant> getGameParticipant() {
+        return gameParticipant;
     }
 
-    public void setGameParticipants(List<GameParticipant> gameParticipants) {
-        this.gameParticipants = gameParticipants;
+    public void setGameParticipant(List<GameParticipant> gameParticipant) {
+        this.gameParticipant = gameParticipant;
     }
 
     public Date getEventDate() {
@@ -30,5 +33,13 @@ public class Game {
 
     public void setEventDate(Date eventDate) {
         this.eventDate = eventDate;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

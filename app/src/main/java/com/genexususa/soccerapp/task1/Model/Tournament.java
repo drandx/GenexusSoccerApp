@@ -7,11 +7,13 @@ import java.util.List;
  */
 public class Tournament {
 
+    private String id;
     private String name;
     private String hexColor;
     private List<Group> groups;
 
-    public Tournament(String name, String hexColor, List<Group> groups) {
+    public Tournament(String id, String name, String hexColor, List<Group> groups) {
+        this.id = id;
         this.name = name;
         this.hexColor = hexColor;
         this.groups = groups;
@@ -39,5 +41,13 @@ public class Tournament {
 
     public void setGroups(List<Group> groups) {
         this.groups = groups;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
