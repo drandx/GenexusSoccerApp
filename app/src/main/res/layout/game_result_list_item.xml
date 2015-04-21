@@ -1,5 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:padding="0dp" >
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/dateContainer"
+        android:layout_width="63dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#98EDD5">
+        <TextView android:id="@+id/dayNumberTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20dp" />
+        <TextView android:id="@+id/monthNameTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mayo"
+            android:layout_gravity="center_horizontal"
+            android:autoText="false"
+            android:textSize="13sp" />
+        <TextView android:id="@+id/yearNumberTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2014"
+            android:layout_gravity="center_horizontal"
+            android:textSize="11sp" />
+        <TextView android:id="@+id/hourStringTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="16:30 hrs"
+            android:layout_gravity="center_horizontal"
+            android:textSize="11sp" />
 
-</LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/leftContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/dateContainer"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="21dp"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/iconLocal"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:src="@drawable/racingIco" />
+        <TextView
+            android:id="@+id/localTeamNameText"
+            android:text="Racing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/iconLocal"
+            android:gravity="center_horizontal"
+            android:textColor="#000000"
+            android:textSize="12sp" />
+    </LinearLayout>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/titleContainter"
+        android:layout_toRightOf="@id/leftContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+            <TextView
+                android:id="@+id/tournamentTitleTxt"
+                android:text="Copa Chile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/iconLocal"
+                android:gravity="center_vertical"
+                android:textColor="#696969"
+                android:textSize="10sp" />
+            <TextView
+                android:id="@+id/dateTitleTxt"
+                android:text="Grupo 1 - Fecha 3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textColor="#696969"
+                android:textSize="10sp" />
+    </LinearLayout>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/scoresContainer"
+        android:layout_toRightOf="@id/leftContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+        <TextView
+            android:id="@+id/localScoreTxt"
+            android:text="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textColor="#696969"
+            android:textSize="21sp" />
+        <TextView
+            android:id="@+id/visitorScoreText"
+            android:text="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textColor="#696969"
+            android:textSize="21sp" />
+    </LinearLayout>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/rightContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/titleContainter"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="21dp"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/visitorIcon"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:src="@drawable/riverIco" />
+        <TextView
+            android:id="@+id/visitorTeamTxt"
+            android:text="River Plate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/iconLocal"
+            android:gravity="center_horizontal"
+            android:textColor="#000000"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</RelativeLayout>
