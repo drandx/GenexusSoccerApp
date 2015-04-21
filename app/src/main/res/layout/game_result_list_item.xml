@@ -6,7 +6,7 @@
     android:padding="0dp" >
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/dateContainer"
+        android:id="@+id/topLeftContainer"
         android:layout_width="63dp"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -42,12 +42,13 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/leftContainer"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/dateContainer"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@id/topLeftContainer"
         android:layout_marginLeft="34dp"
         android:layout_marginTop="21dp"
         android:layout_centerVertical="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
         <ImageView
             android:id="@+id/iconLocal"
             android:layout_width="38dp"
@@ -59,24 +60,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/iconLocal"
-            android:gravity="center_horizontal"
             android:textColor="#000000"
             android:textSize="12sp" />
     </LinearLayout>
-    <LinearLayout
+    <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/titleContainter"
+        android:id="@+id/middleContainer"
         android:layout_toRightOf="@id/leftContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:padding="0dp" >
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/titleContainter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
             <TextView
                 android:id="@+id/tournamentTitleTxt"
                 android:text="Copa Chile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/iconLocal"
                 android:gravity="center_vertical"
                 android:textColor="#696969"
                 android:textSize="10sp" />
@@ -88,43 +93,45 @@
                 android:gravity="center_vertical"
                 android:textColor="#696969"
                 android:textSize="10sp" />
-    </LinearLayout>
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/scoresContainer"
-        android:layout_toRightOf="@id/leftContainer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal">
-        <TextView
-            android:id="@+id/localScoreTxt"
-            android:text="3"
+        </LinearLayout>
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/scoresContainer"
+            android:layout_below="@id/titleContainter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:textColor="#696969"
-            android:textSize="21sp" />
-        <TextView
-            android:id="@+id/visitorScoreText"
-            android:text="0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:textColor="#696969"
-            android:textSize="21sp" />
-    </LinearLayout>
+            android:layout_marginTop="35dp"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+            <TextView
+                android:id="@+id/localScoreTxt"
+                android:text="3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textColor="#696969"
+                android:textSize="21sp" />
+            <TextView
+                android:id="@+id/visitorScoreText"
+                android:text="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textColor="#696969"
+                android:textSize="21sp" />
+        </LinearLayout>
+    </RelativeLayout>
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/rightContainer"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/titleContainter"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@+id/middleContainer"
         android:layout_marginLeft="34dp"
         android:layout_marginTop="21dp"
+        android:orientation="vertical"
         android:layout_centerVertical="true"
-        android:orientation="vertical">
+        android:gravity="center_horizontal">
         <ImageView
             android:id="@+id/visitorIcon"
             android:layout_width="38dp"
