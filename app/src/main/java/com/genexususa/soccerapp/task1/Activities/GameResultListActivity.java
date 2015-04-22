@@ -7,6 +7,7 @@ import android.util.Log;
 
 import com.genexususa.soccerapp.task1.Fragments.GameResultDetailFragment;
 import com.genexususa.soccerapp.task1.Fragments.GameResultListFragment;
+import com.genexususa.soccerapp.task1.Managers.TournamentManager;
 import com.genexususa.soccerapp.task1.Model.Tournament;
 import com.genexususa.soccerapp.task1.R;
 
@@ -49,22 +50,9 @@ public class GameResultListActivity extends FragmentActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gameresult_list);
 
-        RestClient.get().getGamesResults("{\"include\": [{\"groups\": {\"games\":\"gameParticipant\"}}]}", new Callback<List<Tournament>>() {
-            @Override
-                public void success(List<Tournament> tournamentsResponse, Response response) {
-                    // success!
-                    Log.i("Number of Tournaments: ", "--->"+tournamentsResponse.size());
-                    //Log.i("App", weatherResponse.getWeather().getMain());
-                    //Log.i("App", weatherResponse.getWeather().getDescription());
-                    // you get the point...
-                }
-
-                @Override
-                public void failure(RetrofitError error) {
-                    // something went wrong
-                }
-            });
-
+        Log.d("onCreate", "Before loading data from manager...");
+        TournamentManager.getInstance().InitData();
+        Log.d("onCreate", "...After  loading data from manager");
 
         if (findViewById(R.id.gameresult_detail_container) != null) {
             // The detail container view will be present only in the
@@ -80,7 +68,6 @@ public class GameResultListActivity extends FragmentActivity
                     .setActivateOnItemClick(true);
         }
 
-        // TODO: If exposing deep links into your app, handle intents here.
     }
 
     /**

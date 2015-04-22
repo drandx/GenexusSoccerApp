@@ -1,5 +1,7 @@
 package com.genexususa.soccerapp.task1.Networking;
 
+import com.genexususa.soccerapp.task1.Model.Game;
+import com.genexususa.soccerapp.task1.Model.Team;
 import com.genexususa.soccerapp.task1.Model.Tournament;
 
 import java.util.List;
@@ -13,7 +15,10 @@ import retrofit.http.Query;
  */
 
 public interface Restapi {
-    //{"include": [{"groups": {"games":"gameParticipant"}}]}
     @GET("/tournaments")
     void getGamesResults(@Query("filter") String filterQuery, Callback<List<Tournament>> callback);
+    @GET("/teams")
+    void getTeams(Callback<List<Team>> callback);
+    @GET("/games")
+    void getGames(@Query("filter") String filterQuery, Callback<List<Game>> callback);
 }

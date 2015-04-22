@@ -3,11 +3,15 @@ package com.genexususa.soccerapp.task1.Fragments;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 
+import com.genexususa.soccerapp.task1.Adapters.GameResultsAdapter;
+import com.genexususa.soccerapp.task1.Managers.TournamentManager;
+import com.genexususa.soccerapp.task1.Utils.TournamentObserver;
 import com.genexususa.soccerapp.task1.dummy.DummyContent;
 
 /**
@@ -19,7 +23,10 @@ import com.genexususa.soccerapp.task1.dummy.DummyContent;
  * Activities containing this fragment MUST implement the {@link Callbacks}
  * interface.
  */
-public class GameResultListFragment extends ListFragment {
+public class GameResultListFragment extends ListFragment{
+
+    GameResultsAdapter adapter;
+
 
     /**
      * The serialization (saved instance state) Bundle key representing the
@@ -70,13 +77,15 @@ public class GameResultListFragment extends ListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         // TODO: replace with a real list adapter.
-        setListAdapter(new ArrayAdapter<DummyContent.DummyItem>(
+        /*setListAdapter(new ArrayAdapter<DummyContent.DummyItem>(
                 getActivity(),
                 android.R.layout.simple_list_item_activated_1,
                 android.R.id.text1,
-                DummyContent.ITEMS));
+                DummyContent.ITEMS));*/
+        adapter = new GameResultsAdapter(getActivity(), TournamentManager.getInstance().getGames());
+        setListAdapter(adapter);
+
     }
 
     @Override
@@ -116,7 +125,7 @@ public class GameResultListFragment extends ListFragment {
 
         // Notify the active callbacks interface (the activity, if the
         // fragment is attached to one) that an item has been selected.
-        mCallbacks.onItemSelected(DummyContent.ITEMS.get(position).id);
+        mCallbacks.onItemSelected("Testing...");
     }
 
     @Override
@@ -149,4 +158,5 @@ public class GameResultListFragment extends ListFragment {
 
         mActivatedPosition = position;
     }
+
 }

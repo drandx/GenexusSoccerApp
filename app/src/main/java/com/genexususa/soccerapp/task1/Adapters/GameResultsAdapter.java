@@ -12,26 +12,28 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.BaseAdapter;
 
+import com.genexususa.soccerapp.task1.Managers.TournamentManager;
+import com.genexususa.soccerapp.task1.Model.Game;
 import com.genexususa.soccerapp.task1.R;
+import com.genexususa.soccerapp.task1.Utils.TournamentObserver;
+
 /**
  * Created by juangarcia on 4/21/15.
  */
-public class GameResultsAdapter extends BaseAdapter {
+public class GameResultsAdapter extends BaseAdapter implements TournamentObserver {
 
     Context context;
-    List<Object> rowItem;
+    List<Game> rowItem;
 
-    GameResultsAdapter(Context context, List<Object> rowItem) {
+    public GameResultsAdapter(Context context, List<Game> rowItem) {
         this.context = context;
         this.rowItem = rowItem;
-
+        TournamentManager.getInstance().addObserver(this);
     }
 
     @Override
     public int getCount() {
-
-        //return rowItem.size();
-        return 5;
+        return rowItem.size();
     }
 
     @Override
@@ -65,6 +67,12 @@ public class GameResultsAdapter extends BaseAdapter {
 
         return convertView;
 
+    }
+
+    public void update()
+    {
+        this.rowItem = TournamentManager.getInstance().getGames();
+        this.notifyDataSetChanged();
     }
 
 }
