@@ -7,11 +7,13 @@ import java.util.List;
  */
 public class Team {
 
+    private String id;
     private String name;
     private String logoFile;
     private List<GameParticipant> gamesParticipants;
 
-    public Team(String name, String logoFile, List<GameParticipant> gamesParticipants) {
+    public Team(String id, String name, String logoFile, List<GameParticipant> gamesParticipants) {
+        this.id = id;
         this.name = name;
         this.logoFile = logoFile;
         this.gamesParticipants = gamesParticipants;
@@ -19,6 +21,14 @@ public class Team {
 
     public String getName() {
         return name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void setName(String name) {

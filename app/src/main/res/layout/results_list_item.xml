@@ -130,7 +130,7 @@
             android:id="@+id/visitorLayout">
 
             <ImageView
-                android:id="@+id/visitorIcon"
+                android:id="@+id/iconVisitor"
                 android:layout_width="38dp"
                 android:layout_height="38dp"
                 android:src="@drawable/racingicon"

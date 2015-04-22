@@ -3,16 +3,11 @@ package com.genexususa.soccerapp.task1.Fragments;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
-import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
 
 import com.genexususa.soccerapp.task1.Adapters.GameResultsAdapter;
 import com.genexususa.soccerapp.task1.Managers.TournamentManager;
-import com.genexususa.soccerapp.task1.Utils.TournamentObserver;
-import com.genexususa.soccerapp.task1.dummy.DummyContent;
 
 /**
  * A list fragment representing a list of GamesResults. This fragment

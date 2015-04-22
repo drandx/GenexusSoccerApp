@@ -2,12 +2,14 @@ package com.genexususa.soccerapp.task1.Managers;
 
 import android.util.Log;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.genexususa.soccerapp.task1.Model.*;
+import com.genexususa.soccerapp.task1.Model.Game;
+import com.genexususa.soccerapp.task1.Model.Team;
+import com.genexususa.soccerapp.task1.Model.Tournament;
 import com.genexususa.soccerapp.task1.Networking.RestClient;
 import com.genexususa.soccerapp.task1.Utils.TournamentObserver;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit.Callback;
 import retrofit.RetrofitError;
@@ -93,7 +95,7 @@ public class TournamentManager {
 
     private void LoadGames()
     {
-        RestClient.get().getGames("{\"include\": \"gameParticipant\"}", new Callback<List<Game>>() {
+        RestClient.get().getGames("{\"include\": \"gameParticipants\"}", new Callback<List<Game>>() {
             @Override
             public void success(List<Game> gamesResponse, Response response) {
                 games = gamesResponse;
@@ -117,6 +119,15 @@ public class TournamentManager {
 
     public List<Game> getGames() {
         return games;
+    }
+
+    public Team getTeamById(String teamId)
+    {
+        for (int i = 0; i < teams.size(); i++) {
+            if(teams.get(i).getId().equals(teamId))
+                return teams.get(i);
+        }
+        return null;
     }
 
     public void addObserver(TournamentObserver obs) {

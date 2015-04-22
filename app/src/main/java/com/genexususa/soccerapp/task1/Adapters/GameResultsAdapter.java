@@ -1,21 +1,25 @@
 package com.genexususa.soccerapp.task1.Adapters;
 
-import java.util.List;
-
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.BaseAdapter;
 
 import com.genexususa.soccerapp.task1.Managers.TournamentManager;
 import com.genexususa.soccerapp.task1.Model.Game;
+import com.genexususa.soccerapp.task1.Model.GameParticipant;
+import com.genexususa.soccerapp.task1.Model.Team;
 import com.genexususa.soccerapp.task1.R;
+import com.genexususa.soccerapp.task1.Utils.ImageProccesing;
 import com.genexususa.soccerapp.task1.Utils.TournamentObserver;
+
+import java.util.List;
 
 /**
  * Created by juangarcia on 4/21/15.
@@ -56,14 +60,34 @@ public class GameResultsAdapter extends BaseAdapter implements TournamentObserve
                     .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
             convertView = mInflater.inflate(R.layout.results_list_item, null);
         }
+        Game gameRow = rowItem.get(position);
+        ImageView localLogo = (ImageView) convertView.findViewById(R.id.iconLocal);
+        ImageView visitorLogo = (ImageView) convertView.findViewById(R.id.iconVisitor);
 
-       /* ImageView imgIcon = (ImageView) convertView.findViewById(R.id.icon);
-        TextView txtTitle = (TextView) convertView.findViewById(R.id.title);
+        Team localTeam = null;
+        Team visitorTeam = null;
+        GameParticipant localParticipant = gameRow.getLocalParticipant();
+        GameParticipant visitorParticipant = gameRow.getVisitorParticipant();
 
-        RowItem row_pos = rowItem.get(position);
-        // setting the image resource and title
-        imgIcon.setImageResource(row_pos.getIcon());
-        txtTitle.setText(row_pos.getTitle());*/
+        if(localParticipant != null) {
+            localTeam = TournamentManager.getInstance().getTeamById(localParticipant.getTeamId());
+        }
+        if(visitorParticipant != null){
+            visitorTeam = TournamentManager.getInstance().getTeamById(visitorParticipant.getTeamId());
+        }
+
+        if(localTeam != null){
+            Drawable d = ImageProccesing.getDrawable(localTeam.getLogoFile().substring(0, localTeam.getLogoFile().lastIndexOf('.')), context);
+            Bitmap bitmap = ((BitmapDrawable)d).getBitmap();
+            bitmap = ImageProccesing.eraseBG(bitmap, -1);
+            localLogo.setImageBitmap(bitmap);
+        }
+        if(visitorTeam != null){
+            Drawable d = ImageProccesing.getDrawable(visitorTeam.getLogoFile().substring(0, visitorTeam.getLogoFile().lastIndexOf('.')), context);
+            Bitmap bitmap = ((BitmapDrawable)d).getBitmap();
+            bitmap = ImageProccesing.eraseBG(bitmap, -1);
+            visitorLogo.setImageBitmap(bitmap);
+        }
 
         return convertView;
 

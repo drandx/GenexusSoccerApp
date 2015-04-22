@@ -8,17 +8,7 @@ import android.util.Log;
 import com.genexususa.soccerapp.task1.Fragments.GameResultDetailFragment;
 import com.genexususa.soccerapp.task1.Fragments.GameResultListFragment;
 import com.genexususa.soccerapp.task1.Managers.TournamentManager;
-import com.genexususa.soccerapp.task1.Model.Tournament;
 import com.genexususa.soccerapp.task1.R;
-
-import com.genexususa.soccerapp.task1.Networking.RestClient;
-
-
-import java.util.List;
-
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
 
 /**
  * An activity representing a list of GamesResults. This activity

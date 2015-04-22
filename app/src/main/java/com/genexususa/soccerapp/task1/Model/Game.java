@@ -9,22 +9,22 @@ import java.util.List;
 public class Game {
 
     private String id;
-    private List<GameParticipant> gameParticipant;
+    private List<GameParticipant> gameParticipants;
     private Date eventDate;
 
     public Game(String id, List<GameParticipant> gameParticipant, Date eventDate) {
-        this.gameParticipant = gameParticipant;
+        this.gameParticipants = gameParticipant;
         this.eventDate = eventDate;
         this.id = id;
     }
 
 
-    public List<GameParticipant> getGameParticipant() {
-        return gameParticipant;
+    public List<GameParticipant> getGameParticipants() {
+        return gameParticipants;
     }
 
-    public void setGameParticipant(List<GameParticipant> gameParticipant) {
-        this.gameParticipant = gameParticipant;
+    public void setGameParticipants(List<GameParticipant> gameParticipants) {
+        this.gameParticipants = gameParticipants;
     }
 
     public Date getEventDate() {
@@ -41,5 +41,23 @@ public class Game {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public GameParticipant getLocalParticipant()
+    {
+        for (int i = 0; i < gameParticipants.size(); i++) {
+            if(gameParticipants.get(i).isLocal())
+                return gameParticipants.get(i);
+        }
+        return null;
+    }
+
+    public GameParticipant getVisitorParticipant()
+    {
+        for (int i = 0; i < gameParticipants.size(); i++) {
+            if(!gameParticipants.get(i).isLocal())
+                return gameParticipants.get(i);
+        }
+        return null;
     }
 }
