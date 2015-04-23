@@ -5,6 +5,8 @@ import android.util.Log;
 import com.genexususa.soccerapp.task1.Model.Game;
 import com.genexususa.soccerapp.task1.Model.Team;
 import com.genexususa.soccerapp.task1.Model.Tournament;
+import com.genexususa.soccerapp.task1.Networking.Responses.GameResult;
+import com.genexususa.soccerapp.task1.Networking.Responses.ResultsResponse;
 import com.genexususa.soccerapp.task1.Networking.RestClient;
 import com.genexususa.soccerapp.task1.Utils.TournamentObserver;
 
@@ -23,10 +25,10 @@ public class TournamentManager {
     private static volatile TournamentManager INSTANCE;
 
     private List<TournamentObserver> observers;
-
     private List<Team> teams;
     private List<Tournament> tournaments;
     private List<Game> games;
+    private List<GameResult> gamesResults;
 
     /**
      * private constructor to prevent client from instantiating.
@@ -39,6 +41,7 @@ public class TournamentManager {
         this.teams = new ArrayList<>();
         this.tournaments = new ArrayList<>();
         this.games = new ArrayList<>();
+        this.gamesResults = new ArrayList<>();
         observers = new ArrayList<>();
     }
 
@@ -55,59 +58,7 @@ public class TournamentManager {
         return result;
     }
 
-    public void InitData()
-    {
-        Log.d("InitData", "Loading data..");
-        this.LoadTeams();
-        this.LoadTournaments();
-        this.LoadGames();
-        Log.d("InitData", "Data loaded..");
-    }
-
-    private void LoadTeams()
-    {
-        RestClient.get().getTeams(new Callback<List<Team>>() {
-            @Override
-            public void success(List<Team> teamsResponse, Response response) {
-                teams = teamsResponse;
-            }
-            @Override
-            public void failure(RetrofitError error) {
-
-            }
-        });
-    }
-
-    private void LoadTournaments()
-    {
-        RestClient.get().getGamesResults("{\"include\": \"groups\"}", new Callback<List<Tournament>>() {
-            @Override
-            public void success(List<Tournament> tournamentsResponse, Response response) {
-               tournaments = tournamentsResponse;
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-
-            }
-        });
-    }
-
-    private void LoadGames()
-    {
-        RestClient.get().getGames("{\"include\": \"gameParticipants\"}", new Callback<List<Game>>() {
-            @Override
-            public void success(List<Game> gamesResponse, Response response) {
-                games = gamesResponse;
-                notifyObservers();
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-
-            }
-        });
-    }
+    //Getters and Setters
 
     public List<Team> getTeams() {
         return teams;
@@ -130,6 +81,12 @@ public class TournamentManager {
         return null;
     }
 
+    public List<GameResult> getGamesResults() {
+        return gamesResults;
+    }
+
+    //Observer
+
     public void addObserver(TournamentObserver obs) {
         observers.add(obs);
     }
@@ -138,6 +95,77 @@ public class TournamentManager {
         for (TournamentObserver obs : observers) {
             obs.update();
         }
+    }
+
+    //Networking calls
+
+    public void InitData()
+    {
+        Log.d("InitData", "Loading data..");
+        //this.LoadTeams();
+        //this.LoadTournaments();
+        //this.LoadGames();
+        this.LoadGameResults();
+        Log.d("InitData", "Data loaded..");
+    }
+
+    private void LoadTournaments()
+    {
+        RestClient.get().getGamesResults("{\"include\": \"groups\"}", new Callback<List<Tournament>>() {
+            @Override
+            public void success(List<Tournament> tournamentsResponse, Response response) {
+                tournaments = tournamentsResponse;
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+
+            }
+        });
+    }
+
+    private void LoadGames()
+    {
+        RestClient.get().getGames("{\"include\": \"gameParticipants\"}", new Callback<List<Game>>() {
+            @Override
+            public void success(List<Game> gamesResponse, Response response) {
+                games = gamesResponse;
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+
+            }
+        });
+    }
+
+    private void LoadTeams()
+    {
+        RestClient.get().getTeams(new Callback<List<Team>>() {
+            @Override
+            public void success(List<Team> teamsResponse, Response response) {
+                teams = teamsResponse;
+            }
+            @Override
+            public void failure(RetrofitError error) {
+
+            }
+        });
+    }
+
+    private void LoadGameResults()
+    {
+        RestClient.get().getGamesResults(new Callback<ResultsResponse>() {
+            @Override
+            public void success(ResultsResponse resultsResponse, Response response) {
+                gamesResults = resultsResponse.getResults();
+                notifyObservers();
+            }
+            @Override
+            public void failure(RetrofitError error) {
+
+            }
+        });
     }
 
 }

@@ -3,6 +3,7 @@ package com.genexususa.soccerapp.task1.Networking;
 import com.genexususa.soccerapp.task1.Model.Game;
 import com.genexususa.soccerapp.task1.Model.Team;
 import com.genexususa.soccerapp.task1.Model.Tournament;
+import com.genexususa.soccerapp.task1.Networking.Responses.ResultsResponse;
 
 import java.util.List;
 
@@ -21,4 +22,6 @@ public interface Restapi {
     void getTeams(Callback<List<Team>> callback);
     @GET("/games")
     void getGames(@Query("filter") String filterQuery, Callback<List<Game>> callback);
+    @GET("/games/gameResults")
+    void getGamesResults(Callback<ResultsResponse> callback);
 }

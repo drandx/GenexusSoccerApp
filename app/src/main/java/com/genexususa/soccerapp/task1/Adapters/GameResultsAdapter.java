@@ -14,10 +14,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.genexususa.soccerapp.task1.Managers.TournamentManager;
-import com.genexususa.soccerapp.task1.Model.Game;
 import com.genexususa.soccerapp.task1.Model.GameParticipant;
-import com.genexususa.soccerapp.task1.Model.Group;
 import com.genexususa.soccerapp.task1.Model.Team;
+import com.genexususa.soccerapp.task1.Networking.Responses.GameResult;
 import com.genexususa.soccerapp.task1.R;
 import com.genexususa.soccerapp.task1.Utils.ImageProccesing;
 import com.genexususa.soccerapp.task1.Utils.TournamentObserver;
@@ -31,9 +30,9 @@ import java.util.List;
 public class GameResultsAdapter extends BaseAdapter implements TournamentObserver {
 
     Context context;
-    List<Game> rowItem;
+    List<GameResult> rowItem;
 
-    public GameResultsAdapter(Context context, List<Game> rowItem) {
+    public GameResultsAdapter(Context context, List<GameResult> rowItem) {
         this.context = context;
         this.rowItem = rowItem;
         TournamentManager.getInstance().addObserver(this);
@@ -64,7 +63,7 @@ public class GameResultsAdapter extends BaseAdapter implements TournamentObserve
                     .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
             convertView = mInflater.inflate(R.layout.results_list_item, null);
         }
-        Game gameRow = rowItem.get(position);
+        GameResult gameRow = rowItem.get(position);
         ImageView localLogo = (ImageView) convertView.findViewById(R.id.iconLocal);
         ImageView visitorLogo = (ImageView) convertView.findViewById(R.id.iconVisitor);
         TextView localNameTxt = (TextView) convertView.findViewById(R.id.localTeamNameText);
@@ -77,22 +76,17 @@ public class GameResultsAdapter extends BaseAdapter implements TournamentObserve
         TextView hourStringTxt = (TextView) convertView.findViewById(R.id.hourStringTxt);
         LinearLayout leftContainer = (LinearLayout) convertView.findViewById(R.id.topLeftContainer);
 
-        Team localTeam = null;
-        Team visitorTeam = null;
         GameParticipant localParticipant = gameRow.getLocalParticipant();
         GameParticipant visitorParticipant = gameRow.getVisitorParticipant();
-        Group group = TournamentManager.getInstance().getGroupById(gameRow.getGroupId());
-        //Tournament tournament = TournamentManager.getInstance().getTournamentById(group.getTournamentId());
+        Team localTeam = localParticipant.getTeam();
+        Team visitorTeam = visitorParticipant.getTeam();
 
         if(localParticipant != null) {
-            localTeam = TournamentManager.getInstance().getTeamById(localParticipant.getTeamId());
-
             if(localTeam != null){
                 Drawable d = ImageProccesing.getDrawable(localTeam.getLogoFile().substring(0, localTeam.getLogoFile().lastIndexOf('.')), context);
                 Bitmap bitmap = ((BitmapDrawable)d).getBitmap();
                 bitmap = ImageProccesing.eraseBG(bitmap, -1);
                 localLogo.setImageBitmap(bitmap);
-
                 localNameTxt.setText(localTeam.getName());
                 localScoreTxt.setText(localParticipant.getScore()+"");
 
@@ -100,8 +94,6 @@ public class GameResultsAdapter extends BaseAdapter implements TournamentObserve
 
         }
         if(visitorParticipant != null){
-            visitorTeam = TournamentManager.getInstance().getTeamById(visitorParticipant.getTeamId());
-
             if(visitorTeam != null){
                 Drawable d = ImageProccesing.getDrawable(visitorTeam.getLogoFile().substring(0, visitorTeam.getLogoFile().lastIndexOf('.')), context);
                 Bitmap bitmap = ((BitmapDrawable)d).getBitmap();
@@ -128,7 +120,7 @@ public class GameResultsAdapter extends BaseAdapter implements TournamentObserve
 
     public void update()
     {
-        this.rowItem = TournamentManager.getInstance().getGames();
+        this.rowItem = TournamentManager.getInstance().getGamesResults();
         this.notifyDataSetChanged();
     }
 

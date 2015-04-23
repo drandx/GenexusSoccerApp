@@ -46,24 +46,6 @@ public class Game {
         this.id = id;
     }
 
-    public GameParticipant getLocalParticipant()
-    {
-        for (int i = 0; i < gameParticipants.size(); i++) {
-            if(gameParticipants.get(i).isLocal())
-                return gameParticipants.get(i);
-        }
-        return null;
-    }
-
-    public GameParticipant getVisitorParticipant()
-    {
-        for (int i = 0; i < gameParticipants.size(); i++) {
-            if(!gameParticipants.get(i).isLocal())
-                return gameParticipants.get(i);
-        }
-        return null;
-    }
-
     public String getGroupId() {
         return groupId;
     }

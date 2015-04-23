@@ -78,7 +78,7 @@ public class GameResultListFragment extends ListFragment{
                 android.R.layout.simple_list_item_activated_1,
                 android.R.id.text1,
                 DummyContent.ITEMS));*/
-        adapter = new GameResultsAdapter(getActivity(), TournamentManager.getInstance().getGames());
+        adapter = new GameResultsAdapter(getActivity(), TournamentManager.getInstance().getGamesResults());
         setListAdapter(adapter);
 
     }
