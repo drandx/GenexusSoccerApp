@@ -10,15 +10,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.genexususa.soccerapp.task1.Managers.TournamentManager;
 import com.genexususa.soccerapp.task1.Model.Game;
 import com.genexususa.soccerapp.task1.Model.GameParticipant;
+import com.genexususa.soccerapp.task1.Model.Group;
 import com.genexususa.soccerapp.task1.Model.Team;
 import com.genexususa.soccerapp.task1.R;
 import com.genexususa.soccerapp.task1.Utils.ImageProccesing;
 import com.genexususa.soccerapp.task1.Utils.TournamentObserver;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
@@ -63,31 +67,60 @@ public class GameResultsAdapter extends BaseAdapter implements TournamentObserve
         Game gameRow = rowItem.get(position);
         ImageView localLogo = (ImageView) convertView.findViewById(R.id.iconLocal);
         ImageView visitorLogo = (ImageView) convertView.findViewById(R.id.iconVisitor);
+        TextView localNameTxt = (TextView) convertView.findViewById(R.id.localTeamNameText);
+        TextView visitorNameTxt = (TextView) convertView.findViewById(R.id.visitorTeamTxt);
+        TextView localScoreTxt = (TextView) convertView.findViewById(R.id.localScoreTxt);
+        TextView visitorScoreTxt = (TextView) convertView.findViewById(R.id.visitorScoreText);
+        TextView dayNumberTxt = (TextView) convertView.findViewById(R.id.dayNumberTxt);
+        TextView monthNameTxt = (TextView) convertView.findViewById(R.id.monthNameTxt);
+        TextView yearNumberTxt = (TextView) convertView.findViewById(R.id.yearNumberTxt);
+        TextView hourStringTxt = (TextView) convertView.findViewById(R.id.hourStringTxt);
+        LinearLayout leftContainer = (LinearLayout) convertView.findViewById(R.id.topLeftContainer);
 
         Team localTeam = null;
         Team visitorTeam = null;
         GameParticipant localParticipant = gameRow.getLocalParticipant();
         GameParticipant visitorParticipant = gameRow.getVisitorParticipant();
+        Group group = TournamentManager.getInstance().getGroupById(gameRow.getGroupId());
+        //Tournament tournament = TournamentManager.getInstance().getTournamentById(group.getTournamentId());
 
         if(localParticipant != null) {
             localTeam = TournamentManager.getInstance().getTeamById(localParticipant.getTeamId());
+
+            if(localTeam != null){
+                Drawable d = ImageProccesing.getDrawable(localTeam.getLogoFile().substring(0, localTeam.getLogoFile().lastIndexOf('.')), context);
+                Bitmap bitmap = ((BitmapDrawable)d).getBitmap();
+                bitmap = ImageProccesing.eraseBG(bitmap, -1);
+                localLogo.setImageBitmap(bitmap);
+
+                localNameTxt.setText(localTeam.getName());
+                localScoreTxt.setText(localParticipant.getScore()+"");
+
+            }
+
         }
         if(visitorParticipant != null){
             visitorTeam = TournamentManager.getInstance().getTeamById(visitorParticipant.getTeamId());
+
+            if(visitorTeam != null){
+                Drawable d = ImageProccesing.getDrawable(visitorTeam.getLogoFile().substring(0, visitorTeam.getLogoFile().lastIndexOf('.')), context);
+                Bitmap bitmap = ((BitmapDrawable)d).getBitmap();
+                bitmap = ImageProccesing.eraseBG(bitmap, -1);
+                visitorLogo.setImageBitmap(bitmap);
+
+                visitorNameTxt.setText(visitorTeam.getName());
+                visitorScoreTxt.setText(visitorParticipant.getScore()+"");
+            }
         }
 
-        if(localTeam != null){
-            Drawable d = ImageProccesing.getDrawable(localTeam.getLogoFile().substring(0, localTeam.getLogoFile().lastIndexOf('.')), context);
-            Bitmap bitmap = ((BitmapDrawable)d).getBitmap();
-            bitmap = ImageProccesing.eraseBG(bitmap, -1);
-            localLogo.setImageBitmap(bitmap);
-        }
-        if(visitorTeam != null){
-            Drawable d = ImageProccesing.getDrawable(visitorTeam.getLogoFile().substring(0, visitorTeam.getLogoFile().lastIndexOf('.')), context);
-            Bitmap bitmap = ((BitmapDrawable)d).getBitmap();
-            bitmap = ImageProccesing.eraseBG(bitmap, -1);
-            visitorLogo.setImageBitmap(bitmap);
-        }
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd");
+        dayNumberTxt.setText(simpleDateFormat.format(gameRow.getEventDate()).toUpperCase());
+
+        simpleDateFormat = new SimpleDateFormat("MMMM");
+        monthNameTxt.setText(simpleDateFormat.format(gameRow.getEventDate()).toUpperCase());
+
+        simpleDateFormat = new SimpleDateFormat("yyyy");
+        yearNumberTxt.setText(simpleDateFormat.format(gameRow.getEventDate()).toUpperCase());
 
         return convertView;
 

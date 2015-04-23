@@ -59,7 +59,7 @@
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/localContainer"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="34dp"
             android:layout_marginTop="21dp"
@@ -69,6 +69,7 @@
                 android:id="@+id/iconLocal"
                 android:layout_width="38dp"
                 android:layout_height="38dp"
+                android:layout_gravity="center_horizontal"
                 android:src="@drawable/rivericon"
                  />
 
@@ -76,6 +77,7 @@
                 android:id="@+id/localTeamNameText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:text="Racing"
                 android:textColor="#000000"
                 android:textSize="12sp" />
@@ -88,7 +90,7 @@
             android:layout_centerHorizontal="true"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:paddingRight="20dp">
+            android:paddingRight="10dp">
 
             <TextView
                 android:id="@+id/tournamentTitleTxt"
@@ -120,7 +122,7 @@
             android:paddingRight="40dp" />
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:layout_marginRight="34dp"
@@ -133,6 +135,7 @@
                 android:id="@+id/iconVisitor"
                 android:layout_width="38dp"
                 android:layout_height="38dp"
+                android:layout_gravity="center_horizontal"
                 android:src="@drawable/racingicon"
                  />
 
@@ -141,7 +144,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/iconLocal"
-                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
                 android:text="River Plate"
                 android:textColor="#000000"
                 android:textSize="12sp" />

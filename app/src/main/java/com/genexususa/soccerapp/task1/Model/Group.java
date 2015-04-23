@@ -10,11 +10,13 @@ public class Group {
     private String id;
     private String name;
     private List<Game> games;
+    private String tournamentId;
 
-    public Group(String id, String name, List<Game> games) {
+    public Group(String id, String name, List<Game> games, String tournamentId) {
         this.id = id;
         this.name = name;
         this.games = games;
+        this.tournamentId = tournamentId;
     }
 
     public List<Game> getGames() {
@@ -39,5 +41,13 @@ public class Group {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getTournamentId() {
+        return tournamentId;
+    }
+
+    public void setTournamentId(String tournamentId) {
+        this.tournamentId = tournamentId;
     }
 }
