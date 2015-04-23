@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools=" http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
     android:layout_width="match_parent"
     android:layout_height="80dp"
     android:padding="0dp">
@@ -18,6 +20,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="8dp"
             android:text="24"
+            fontPath="fonts/Roboto-Regular.ttf"
             android:textColor="#FFFFFF"
             android:textSize="20dp" />
 
@@ -38,6 +41,7 @@
             android:layout_gravity="center_horizontal"
             android:text="2014"
             android:textColor="#FFFFFF"
+            fontPath="fonts/Roboto-Light.ttf"
             android:textSize="11sp" />
 
         <TextView
@@ -47,6 +51,7 @@
             android:layout_gravity="center_horizontal"
             android:text="16:30 hrs"
             android:textColor="#FFFFFF"
+            fontPath="fonts/Roboto-Regular.ttf"
             android:textSize="11sp" />
 
     </LinearLayout>
@@ -79,6 +84,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="Racing"
+                fontPath="fonts/Roboto-Black.ttf"
                 android:textColor="#000000"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -98,6 +104,7 @@
                 android:layout_height="wrap_content"
                 android:text="Copa Chile"
                 android:textColor="#696969"
+                fontPath="fonts/Roboto-Regular.ttf"
                 android:textSize="10sp" />
 
             <TextView
@@ -105,6 +112,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Grupo 1 - Fecha 3"
+                fontPath="fonts/Roboto-Regular.ttf"
                 android:textColor="#696969"
                 android:textSize="10sp" />
         </LinearLayout>
@@ -119,6 +127,7 @@
             android:text="3"
             android:textColor="#696969"
             android:textSize="21sp"
+            fontPath="fonts/Roboto-Black.ttf"
             android:paddingRight="40dp" />
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -146,6 +155,7 @@
                 android:layout_toRightOf="@id/iconLocal"
                 android:layout_gravity="center_horizontal"
                 android:text="River Plate"
+                fontPath="fonts/Roboto-Black.ttf"
                 android:textColor="#000000"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -159,6 +169,7 @@
             android:layout_marginLeft="35dp"
             android:textColor="#696969"
             android:textSize="21sp"
+            fontPath="fonts/Roboto-Black.ttf"
             android:paddingLeft="10dp" />
     </RelativeLayout>
 

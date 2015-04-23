@@ -1,5 +1,6 @@
 package com.genexususa.soccerapp.task1.Activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -9,6 +10,8 @@ import com.genexususa.soccerapp.task1.Fragments.GameResultDetailFragment;
 import com.genexususa.soccerapp.task1.Fragments.GameResultListFragment;
 import com.genexususa.soccerapp.task1.Managers.TournamentManager;
 import com.genexususa.soccerapp.task1.R;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * An activity representing a list of GamesResults. This activity
@@ -85,5 +88,10 @@ public class GameResultListActivity extends FragmentActivity
             detailIntent.putExtra(GameResultDetailFragment.ARG_ITEM_ID, id);
             startActivity(detailIntent);
         }
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 }

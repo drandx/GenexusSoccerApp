@@ -2,9 +2,7 @@ package com.genexususa.soccerapp.task1.Adapters;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +16,6 @@ import com.genexususa.soccerapp.task1.Model.GameParticipant;
 import com.genexususa.soccerapp.task1.Model.Team;
 import com.genexususa.soccerapp.task1.Networking.Responses.GameResult;
 import com.genexususa.soccerapp.task1.R;
-import com.genexususa.soccerapp.task1.Utils.ImageProccesing;
 import com.genexususa.soccerapp.task1.Utils.TournamentObserver;
 
 import java.text.SimpleDateFormat;
@@ -80,13 +77,11 @@ public class GameResultsAdapter extends BaseAdapter implements TournamentObserve
         GameParticipant visitorParticipant = gameRow.getVisitorParticipant();
         Team localTeam = localParticipant.getTeam();
         Team visitorTeam = visitorParticipant.getTeam();
+        leftContainer.setBackgroundColor(Color.parseColor(gameRow.getTournament().getHexColor()));
 
         if(localParticipant != null) {
             if(localTeam != null){
-                Drawable d = ImageProccesing.getDrawable(localTeam.getLogoFile().substring(0, localTeam.getLogoFile().lastIndexOf('.')), context);
-                Bitmap bitmap = ((BitmapDrawable)d).getBitmap();
-                bitmap = ImageProccesing.eraseBG(bitmap, -1);
-                localLogo.setImageBitmap(bitmap);
+                localLogo.setImageBitmap(localTeam.getImageBitmap());
                 localNameTxt.setText(localTeam.getName());
                 localScoreTxt.setText(localParticipant.getScore()+"");
 
@@ -95,11 +90,7 @@ public class GameResultsAdapter extends BaseAdapter implements TournamentObserve
         }
         if(visitorParticipant != null){
             if(visitorTeam != null){
-                Drawable d = ImageProccesing.getDrawable(visitorTeam.getLogoFile().substring(0, visitorTeam.getLogoFile().lastIndexOf('.')), context);
-                Bitmap bitmap = ((BitmapDrawable)d).getBitmap();
-                bitmap = ImageProccesing.eraseBG(bitmap, -1);
-                visitorLogo.setImageBitmap(bitmap);
-
+                visitorLogo.setImageBitmap(visitorTeam.getImageBitmap());
                 visitorNameTxt.setText(visitorTeam.getName());
                 visitorScoreTxt.setText(visitorParticipant.getScore()+"");
             }

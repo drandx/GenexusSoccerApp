@@ -1,5 +1,9 @@
 package com.genexususa.soccerapp.task1.Model;
 
+import android.graphics.Bitmap;
+
+import com.genexususa.soccerapp.task1.Utils.DrawableImageFactory;
+
 import java.util.List;
 
 /**
@@ -10,6 +14,7 @@ public class Team {
     private String id;
     private String name;
     private String logoFile;
+    private Bitmap imageBitmap;
     private List<GameParticipant> gamesParticipants;
 
     public Team(String id, String name, String logoFile, List<GameParticipant> gamesParticipants) {
@@ -49,5 +54,13 @@ public class Team {
 
     public void setGamesParticipants(List<GameParticipant> gamesParticipants) {
         this.gamesParticipants = gamesParticipants;
+    }
+
+    public Bitmap getImageBitmap() {
+        return DrawableImageFactory.getInstance().createImage(this.logoFile.substring(0, logoFile.lastIndexOf('.')));
+    }
+
+    public void setImageBitmap(Bitmap imageBitmap) {
+        this.imageBitmap = imageBitmap;
     }
 }
