@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Task1</string>
     <string name="title_gameresult_detail">GameResult Detail</string>
+    <string name="title_results_list">Resultados</string>
 </resources>

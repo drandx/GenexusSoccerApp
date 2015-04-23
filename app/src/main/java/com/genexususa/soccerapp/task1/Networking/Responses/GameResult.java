@@ -14,15 +14,17 @@ public class GameResult {
     private String id;
     private Date eventDate;
     private Tournament tournament;
+    private int gameNumber;
     private Group group;
     private List<GameParticipant> gameParticipants;
 
-    public GameResult(String id, Date eventDate, Tournament tournament, Group group, List<GameParticipant> gameParticipants) {
+    public GameResult(String id, Date eventDate, Tournament tournament, Group group, List<GameParticipant> gameParticipants, int eventNumber) {
         this.id = id;
         this.eventDate = eventDate;
         this.tournament = tournament;
         this.group = group;
         this.gameParticipants = gameParticipants;
+        this.gameNumber = gameNumber;
     }
 
     public GameParticipant getLocalParticipant()
@@ -83,4 +85,11 @@ public class GameResult {
         this.gameParticipants = gameParticipants;
     }
 
+    public int getGameNumber() {
+        return gameNumber;
+    }
+
+    public void setGameNumber(int gameNumber) {
+        this.gameNumber = gameNumber;
+    }
 }

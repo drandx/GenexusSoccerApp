@@ -1,14 +1,13 @@
 package com.genexususa.soccerapp.task1.Networking;
 
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.squareup.okhttp.OkHttpClient;
 
 import retrofit.RestAdapter;
 import retrofit.client.OkClient;
 import retrofit.converter.GsonConverter;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 /**
  * Created by Soham Banerjee on 1/25/15.
  */

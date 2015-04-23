@@ -12,23 +12,15 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/CustomActionBarTheme" >
         <activity
             android:name="com.genexususa.soccerapp.task1.Activities.GameResultListActivity"
-            android:label="@string/app_name" >
+            android:label="@string/title_results_list" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name="com.genexususa.soccerapp.task1.Activities.GameResultDetailActivity"
-            android:label="@string/title_gameresult_detail"
-            android:parentActivityName="com.genexususa.soccerapp.task1.Activities.GameResultListActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.genexususa.soccerapp.task1.Activities.GameResultListActivity" />
         </activity>
     </application>
 

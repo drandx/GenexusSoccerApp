@@ -61,8 +61,10 @@ public class GameResultsAdapter extends BaseAdapter implements TournamentObserve
             convertView = mInflater.inflate(R.layout.results_list_item, null);
         }
         GameResult gameRow = rowItem.get(position);
+
         ImageView localLogo = (ImageView) convertView.findViewById(R.id.iconLocal);
         ImageView visitorLogo = (ImageView) convertView.findViewById(R.id.iconVisitor);
+
         TextView localNameTxt = (TextView) convertView.findViewById(R.id.localTeamNameText);
         TextView visitorNameTxt = (TextView) convertView.findViewById(R.id.visitorTeamTxt);
         TextView localScoreTxt = (TextView) convertView.findViewById(R.id.localScoreTxt);
@@ -71,20 +73,29 @@ public class GameResultsAdapter extends BaseAdapter implements TournamentObserve
         TextView monthNameTxt = (TextView) convertView.findViewById(R.id.monthNameTxt);
         TextView yearNumberTxt = (TextView) convertView.findViewById(R.id.yearNumberTxt);
         TextView hourStringTxt = (TextView) convertView.findViewById(R.id.hourStringTxt);
-        LinearLayout leftContainer = (LinearLayout) convertView.findViewById(R.id.topLeftContainer);
+        TextView resultTitle = (TextView) convertView.findViewById(R.id.resultTitle);
+        TextView resultSubTitle = (TextView) convertView.findViewById(R.id.resultSubTitle);
+
+         LinearLayout leftContainer = (LinearLayout) convertView.findViewById(R.id.topLeftContainer);
 
         GameParticipant localParticipant = gameRow.getLocalParticipant();
         GameParticipant visitorParticipant = gameRow.getVisitorParticipant();
         Team localTeam = localParticipant.getTeam();
         Team visitorTeam = visitorParticipant.getTeam();
         leftContainer.setBackgroundColor(Color.parseColor(gameRow.getTournament().getHexColor()));
+        resultTitle.setText(gameRow.getTournament().getName());
+
+        String gameSubTitle = gameRow.getGroup().getName();
+        if(!gameRow.getGroup().getName().equals("")) gameSubTitle = gameSubTitle + " - ";
+        gameSubTitle = gameSubTitle + "Fecha " + gameRow.getGameNumber();
+
+        resultSubTitle.setText(gameSubTitle);
 
         if(localParticipant != null) {
             if(localTeam != null){
                 localLogo.setImageBitmap(localTeam.getImageBitmap());
                 localNameTxt.setText(localTeam.getName());
                 localScoreTxt.setText(localParticipant.getScore()+"");
-
             }
 
         }
@@ -104,6 +115,10 @@ public class GameResultsAdapter extends BaseAdapter implements TournamentObserve
 
         simpleDateFormat = new SimpleDateFormat("yyyy");
         yearNumberTxt.setText(simpleDateFormat.format(gameRow.getEventDate()).toUpperCase());
+
+        simpleDateFormat = new SimpleDateFormat("HH:mm");
+        hourStringTxt.setText(simpleDateFormat.format(gameRow.getEventDate()).toUpperCase() + " hrs");
+
 
         return convertView;
 

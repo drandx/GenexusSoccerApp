@@ -2,9 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools=" http://schemas.android.com/tools"
     tools:ignore="MissingPrefix"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="80dp"
-    android:padding="0dp">
+    android:padding="0dp"
+    android:clickable="false">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/topLeftContainer"
@@ -18,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:text="24"
             fontPath="fonts/Roboto-Regular.ttf"
             android:textColor="#FFFFFF"
@@ -58,16 +59,14 @@
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/rightContainer"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_toRightOf="@id/topLeftContainer">
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/localContainer"
-            android:layout_width="80dp"
+            android:layout_width="110dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="34dp"
-            android:layout_marginTop="21dp"
             android:orientation="vertical">
 
             <ImageView
@@ -75,78 +74,9 @@
                 android:layout_width="38dp"
                 android:layout_height="38dp"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginTop="21dp"
                 android:src="@drawable/rivericon"
-                 />
-
-            <TextView
-                android:id="@+id/localTeamNameText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Racing"
-                fontPath="fonts/Roboto-Black.ttf"
-                android:textColor="#000000"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/middleContainer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:paddingRight="10dp">
-
-            <TextView
-                android:id="@+id/tournamentTitleTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Copa Chile"
-                android:textColor="#696969"
-                fontPath="fonts/Roboto-Regular.ttf"
-                android:textSize="10sp" />
-
-            <TextView
-                android:id="@+id/dateTitleTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Grupo 1 - Fecha 3"
-                fontPath="fonts/Roboto-Regular.ttf"
-                android:textColor="#696969"
-                android:textSize="10sp" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/localScoreTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="35dp"
-            android:layout_centerHorizontal="true"
-            android:text="3"
-            android:textColor="#696969"
-            android:textSize="21sp"
-            fontPath="fonts/Roboto-Black.ttf"
-            android:paddingRight="40dp" />
-
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="80dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="34dp"
-            android:layout_marginTop="21dp"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:id="@+id/visitorLayout">
-
-            <ImageView
-                android:id="@+id/iconVisitor"
-                android:layout_width="38dp"
-                android:layout_height="38dp"
-                android:layout_gravity="center_horizontal"
-                android:src="@drawable/racingicon"
-                 />
+                />
 
             <TextView
                 android:id="@+id/visitorTeamTxt"
@@ -158,19 +88,102 @@
                 fontPath="fonts/Roboto-Black.ttf"
                 android:textColor="#000000"
                 android:textSize="12sp" />
+
+
         </LinearLayout>
-        <TextView
-            android:id="@+id/visitorScoreText"
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/middleContainer"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0"
+            android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="35dp"
-            android:layout_marginLeft="35dp"
-            android:textColor="#696969"
-            android:textSize="21sp"
-            fontPath="fonts/Roboto-Black.ttf"
-            android:paddingLeft="10dp" />
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/resultTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Copa Chile"
+                    android:textColor="#696969"
+                    android:gravity="center"
+                    fontPath="fonts/Roboto-Regular.ttf"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/resultSubTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Grupo 1 - Fecha 3"
+                    fontPath="fonts/Roboto-Regular.ttf"
+                    android:textColor="#696969"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/localScoreTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textColor="#696969"
+                    android:gravity="left"
+                    fontPath="fonts/Roboto-Black.ttf"
+                    android:textSize="21sp" />
+
+                <TextView
+                    android:id="@+id/visitorScoreText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="0"
+                    fontPath="fonts/Roboto-Black.ttf"
+                    android:textColor="#696969"
+                    android:textSize="21sp" />
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:id="@+id/visitorLayout">
+
+            <ImageView
+                android:id="@+id/iconVisitor"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="21dp"
+                android:src="@drawable/racingicon"
+                />
+
+            <TextView
+                android:id="@+id/localTeamNameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Racing"
+                fontPath="fonts/Roboto-Black.ttf"
+                android:textColor="#000000"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
     </RelativeLayout>
 
 </RelativeLayout>
