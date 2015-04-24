@@ -104,4 +104,7 @@ public class GameResultListFragment extends ListFragment{
         mActivatedPosition = position;
     }
 
+    public GameResultsAdapter getAdapter() {
+        return adapter;
+    }
 }
