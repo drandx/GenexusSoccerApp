@@ -22,8 +22,12 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
- * Created by juangarcia on 4/21/15.
- */
+ *  functionality: This is the data adapter that represents each list row according to the task requirements.
+ *  created:       2015-04-21
+ *  @author:       Juan Garcia
+ *  changes:
+ *  xpm:
+ **/
 public class GameResultsAdapter extends BaseAdapter implements TournamentObserver {
 
     Context context;

@@ -12,9 +12,12 @@ import retrofit.http.GET;
 import retrofit.http.Query;
 
 /**
- * Created by Soham Banerjee on 13/3/15.
- */
-
+ *  functionality: This class contains the representation of some of the REST services available.
+ *  created:       2015-04-23
+ *  @author:       Juan Garcia
+ *  changes:
+ *  xpm:
+ **/
 public interface Restapi {
     @GET("/tournaments")
     void getGamesResults(@Query("filter") String filterQuery, Callback<List<Tournament>> callback);

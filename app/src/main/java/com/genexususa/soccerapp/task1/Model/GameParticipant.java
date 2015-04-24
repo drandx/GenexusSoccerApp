@@ -1,8 +1,5 @@
 package com.genexususa.soccerapp.task1.Model;
 
-/**
- * Created by juangarcia on 4/19/15.
- */
 public class GameParticipant {
 
     private String teamId;

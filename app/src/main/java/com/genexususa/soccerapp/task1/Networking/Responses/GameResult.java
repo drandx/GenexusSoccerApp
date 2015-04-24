@@ -7,9 +7,6 @@ import com.genexususa.soccerapp.task1.Model.Tournament;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by juangarcia on 4/23/15.
- */
 public class GameResult {
     private String id;
     private Date eventDate;

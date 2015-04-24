@@ -8,8 +8,12 @@ import com.genexususa.soccerapp.task1.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 /**
- * Created by juangarcia on 4/23/15.
- */
+ *  functionality: This class wraps the Application Context so that it can be used from non-activity classes
+ *  created:       2015-04-23
+ *  @author:       Juan Garcia
+ *  changes:
+ *  xpm:
+ **/
 public class AppContext extends Application {
 
     private static Context context;

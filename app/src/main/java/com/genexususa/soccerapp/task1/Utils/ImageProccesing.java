@@ -8,10 +8,22 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 /**
- * Created by juangarcia on 4/22/15.
- */
+ *  functionality: Util class with util methods to process images
+ *  created:       2015-04-21
+ *  @author:       Juan Garcia
+ *  changes:
+ *  xpm:
+ **/
 public class ImageProccesing extends AsyncTask<Bitmap, Void, Bitmap> {
 
+    /**
+     *  functionality: Gets rid of the white background that shows up in Lollipop
+     *  @author: Juan Garcia
+     *  @param:
+     *  @param:
+     *  @return: Bitmap
+     *  @exception:
+     **/
     public static Bitmap eraseBG(Bitmap src, int color) {
         int width = src.getWidth();
         int height = src.getHeight();
@@ -43,11 +55,6 @@ public class ImageProccesing extends AsyncTask<Bitmap, Void, Bitmap> {
 
     protected Bitmap doInBackground(Bitmap...arg0) {
         Log.d("DoINBackGround","On doInBackground...");
-
-        /*for(int i=0; i<10; i++){
-            Integer in = new Integer(i);
-            publishProgress(i);
-        }*/
         return eraseBG(arg0[0],-1);
     }
 

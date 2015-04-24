@@ -9,9 +9,12 @@ import retrofit.RestAdapter;
 import retrofit.client.OkClient;
 import retrofit.converter.GsonConverter;
 /**
- * Created by Soham Banerjee on 1/25/15.
- */
-
+ *  functionality: This class configures the Retrofit Rest Client from the Android Library
+ *  created:       2015-04-21
+ *  @author:       Juan Garcia
+ *  changes:
+ *  xpm:
+ **/
 public class RestClient {
 
     private static Restapi REST_CLIENT;

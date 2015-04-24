@@ -3,9 +3,12 @@ package com.genexususa.soccerapp.task1.Networking;
 import retrofit.RequestInterceptor;
 
 /**
- * Created by Soham Banerjee on 13/3/15.
- */
-
+ *  functionality: This is an HTTP filter or interceptor.
+ *  created:       2015-04-21
+ *  @author:       Juan Garcia
+ *  changes:
+ *  xpm:
+ **/
 public class SessionRequestInterceptor implements RequestInterceptor {
     private static final String TAG = SessionRequestInterceptor.class.getSimpleName();
 

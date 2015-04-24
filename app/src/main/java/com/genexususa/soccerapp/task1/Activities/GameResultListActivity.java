@@ -10,13 +10,15 @@ import com.genexususa.soccerapp.task1.R;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-
+/**
+ *  functionality: This is the launcher activity that initializes the ListFragment.
+ *  created:       2015-04-21
+ *  @author:       Juan Garcia
+ *  changes:
+ *  xpm:
+ **/
 public class GameResultListActivity extends ActionBarActivity{
 
-    /**
-     * Whether or not the activity is in two-pane mode, i.e. running on a tablet
-     * device.
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -6,9 +6,6 @@ import com.genexususa.soccerapp.task1.Utils.DrawableImageFactory;
 
 import java.util.List;
 
-/**
- * Created by juangarcia on 4/19/15.
- */
 public class Team {
 
     private String id;

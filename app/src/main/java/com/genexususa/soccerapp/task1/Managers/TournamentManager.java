@@ -1,7 +1,5 @@
 package com.genexususa.soccerapp.task1.Managers;
 
-import android.util.Log;
-
 import com.genexususa.soccerapp.task1.Model.Game;
 import com.genexususa.soccerapp.task1.Model.Team;
 import com.genexususa.soccerapp.task1.Model.Tournament;
@@ -18,8 +16,12 @@ import retrofit.RetrofitError;
 import retrofit.client.Response;
 
 /**
- * Created by juangarcia on 4/21/15.
- */
+ *  functionality: This class manages the business logic and the data needed for the Results screen.
+ *  created:       2015-04-21
+ *  @author:       Juan Garcia
+ *  changes:
+ *  xpm:
+ **/
 public class TournamentManager {
 
     private static volatile TournamentManager INSTANCE;
@@ -30,12 +32,8 @@ public class TournamentManager {
     private List<Game> games;
     private List<GameResult> gamesResults;
 
-    /**
-     * private constructor to prevent client from instantiating.
-     *
-     */
+
     private TournamentManager() {
-        //to prevent instantiating by Reflection call
         if(INSTANCE != null)
             throw new IllegalStateException("Already initialized.");
         this.teams = new ArrayList<>();
@@ -57,8 +55,6 @@ public class TournamentManager {
         }
         return result;
     }
-
-    //Getters and Setters
 
     public List<Team> getTeams() {
         return teams;
@@ -85,9 +81,14 @@ public class TournamentManager {
         return gamesResults;
     }
 
-    //Observer
-
-    public void addObserver(TournamentObserver obs) {
+    /**
+     *  functionality: This method adds instances of objects observing notifications from this class.
+     *  @author: Juan Garcia
+     *  @param:
+     *  @param:
+     *  @return:
+     *  @exception:
+     **/    public void addObserver(TournamentObserver obs) {
         observers.add(obs);
     }
 
@@ -97,48 +98,19 @@ public class TournamentManager {
         }
     }
 
-    //Networking calls
-
     public void InitData()
     {
-        Log.d("InitData", "Loading data..");
-        //this.LoadTeams();
-        //this.LoadTournaments();
-        //this.LoadGames();
         this.LoadGameResults();
-        Log.d("InitData", "Data loaded..");
     }
 
-    private void LoadTournaments()
-    {
-        RestClient.get().getGamesResults("{\"include\": \"groups\"}", new Callback<List<Tournament>>() {
-            @Override
-            public void success(List<Tournament> tournamentsResponse, Response response) {
-                tournaments = tournamentsResponse;
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-
-            }
-        });
-    }
-
-    private void LoadGames()
-    {
-        RestClient.get().getGames("{\"include\": \"gameParticipants\"}", new Callback<List<Game>>() {
-            @Override
-            public void success(List<Game> gamesResponse, Response response) {
-                games = gamesResponse;
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-
-            }
-        });
-    }
-
+    /**
+     *  functionality: Asynchronous call to load all the teams and handles the call back internally.
+     *  @author: Juan Garcia
+     *  @param:
+     *  @param:
+     *  @return:
+     *  @exception:
+     **/
     private void LoadTeams()
     {
         RestClient.get().getTeams(new Callback<List<Team>>() {
@@ -152,6 +124,15 @@ public class TournamentManager {
             }
         });
     }
+
+    /**
+     *  functionality: Asynchronous call to load all the games results and handles the call back internally.
+     *  @author: Juan Garcia
+     *  @param:
+     *  @param:
+     *  @return:
+     *  @exception:
+     **/
 
     private void LoadGameResults()
     {
